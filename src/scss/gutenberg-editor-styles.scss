@@ -1,0 +1,37 @@
+/**
+ * This stylesheet is only imported into the Gutenberg Editor.
+ * The editor requires its own stylesheet as the markup it uses is slightly different.
+ *
+ * For example, the Gutenberg Editor applies wp-block classes to each block. These do not appear in the front end, but
+ * only in the editor. These wp-block classes have a max-width, to constrain them, whereas the frontend would use
+ * an o-wrapper object.
+ *
+ * This means we need to maintain a separate stylesheet that has all of our base styles, plus the extra editor styling
+ * required to make the editor work correctly.
+ */
+
+@import 'settings/settings.gutenberg';
+
+@import 'tools/tools.mixins';
+
+@import 'generics/generics.fonts';
+
+@import 'tailwindcss/base';
+@layer base {
+  @import 'elements/elements.page';
+}
+
+@import 'tailwindcss/components';
+
+@import 'components/component.button';
+@import 'components/component.swoosh';
+@import 'components/blocks/component.gutenberg-editor';
+@import 'components/blocks/component.acf-banner';
+@import 'components/blocks/component.acf-compact-grid';
+@import 'components/blocks/component.acf-focus-block';
+@import 'components/blocks/component.gute-spacer';
+
+@import 'tailwindcss/utilities';
+@layer utilities {
+  @import 'utilities/utilities.text';
+}

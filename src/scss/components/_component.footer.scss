@@ -1,0 +1,35 @@
+.c-footer {
+  background-color: theme('colors.blue.300');
+  color: theme('colors.white');
+  padding-bottom: theme('spacing.5');
+  padding-top: theme('spacing.5');
+}
+
+.c-footer__logo {
+  margin-bottom: theme('spacing.5');
+}
+
+.c-footer__registered-charity {
+  @apply u-list-none;
+  font-size: theme('fontSize.xs');
+}
+
+.c-footer__menu{
+  @apply u-list-none;
+
+  &__header {
+    @apply u-font-semibold;
+    font-size: theme('fontSize.base');
+    margin-bottom: theme('spacing.4');
+  }
+
+  &__link {
+    @apply u-font-medium;
+    font-size: theme('fontSize.sm');
+  }
+}
+
+.c-footer__copyright {
+  font-size: theme('fontSize.sm');
+  margin-left: auto;
+}

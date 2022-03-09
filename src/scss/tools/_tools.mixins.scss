@@ -1,0 +1,59 @@
+/**
+ * Output the CSS for theme settings that apply at different screen breakpoints
+ * E.G.
+ *  'padding': (
+ *    'DEFAULT': 20px,
+ *    'md': 40px,
+ *    'lg': 80px,
+ *  ),
+ */
+@mixin screen($breakpoint-name) {
+  @if $breakpoint-name == 'DEFAULT' {
+    @content;
+  } @else {
+    @screen #{$breakpoint-name} {
+      @content;
+    }
+  }
+}
+
+/**
+ * Output the CSS for theme settings that apply different modifiers
+ * E.G.
+ *  'maxWidth': (
+ *    'DEFAULT': 1080px,
+ *    'sm': 800px,
+ *    'lg': 1200px,
+ *  ),
+ */
+@mixin modifier($modifier-name, $prefix: '', $suffix: '', $mod: '--') {
+  @if ($modifier-name == 'DEFAULT') {
+    &#{$suffix}{
+      @content;
+    }
+  } @else {
+    &#{$mod}#{$prefix}#{$modifier-name}#{$suffix} {
+      @content;
+    }
+  }
+}
+
+@mixin wide-width() {
+  margin-left: calc(-90vw / 2 + 100% / 2);
+  margin-right: calc(-90vw / 2 + 100% / 2);
+}
+
+@mixin bleed-width() {
+  margin-left: calc(-100vw / 2 + 100% / 2);
+  margin-right: calc(-100vw / 2 + 100% / 2);
+  max-width: 100vw;
+}
+
+@mixin adminbar() {
+  .admin-bar & {
+    margin-top: 32px;
+    @media screen and ( max-width: 782px ) {
+      margin-top: 46px;
+    }
+  }
+}
